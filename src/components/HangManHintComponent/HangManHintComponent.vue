@@ -1,21 +1,21 @@
 <template>
   <div class="modalHintContainer" v-if="showHint">
     <div class="innerHintContainer">
-      <div id="arrow">
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <path
-            style="
-              fill: #ff2e52;
-              stroke: #012e52;
-              stroke-width: 4;
-              stroke-linecap: round;
-              stroke-linejoin: round;
-            "
-            d="M 81.540414,49.378716 H 121.51935 L 101.4866,69.420346 Z"
-          />
-        </svg>
-      </div>
       <div class="bigWheelContainer">
+        <div id="arrow">
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              style="
+                fill: #ff2e52;
+                stroke: #012e52;
+                stroke-width: 4;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              "
+              d="M 81.540414,49.378716 H 121.51935 L 101.4866,69.420346 Z"
+            />
+          </svg>
+        </div>
         <svg id="wheelContainer" viewBox="5 46.5 100 100">
           <g class="wheel">
             <g id="inside">
@@ -287,6 +287,9 @@ export default {
     },
     reveal: function (i) {
       event.target.innerHTML = this.word.charAt(i);
+      setTimeout(() => {
+        this.closeModal();
+      }, 3000);
     },
     spin: function () {
       this.spinBtnActive = true;
@@ -368,15 +371,15 @@ export default {
   background: rgba(0, 0, 2, 0.5);
 }
 
-.bigWheelContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+/* .bigWheelContainer {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+} */
 #wheelContainer {
   position: absolute;
-  max-width: 250px;
-  max-height: 250px;
+  width: 250px;
+  height: 250px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(60deg);
@@ -447,10 +450,12 @@ export default {
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+  z-index: 30;
 }
 .answer {
-  height: 10vh;
-  width: 60vw;
+  /* height: 10vh; */
+  min-height: 10vh;
+  min-width: 60vw;
   top: calc(50% + 20vh);
   left: calc(50% - 30vw);
   position: absolute;
