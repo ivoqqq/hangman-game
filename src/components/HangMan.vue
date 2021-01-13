@@ -157,7 +157,7 @@ export default {
       }
     },
     selected: function () {
-      // TODO - да го направя на метод он клик
+      // TODO - method @click
 
       //random generated word from the chosen category
       //this.words[this.selected] => ArrayFrom words and hints in the chosen category
@@ -182,8 +182,6 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  /* user-select: none; */
-  /* box-sizing: border-box; */
 }
 .container {
   position: fixed;
@@ -209,26 +207,13 @@ export default {
   z-index: 20;
 }
 
-/* .closeBtn:before {
-  content: "";
-  width: 50px;
-  height: 50px;
-  background: black;
-} */
-/* @media only screen and (max-width: 600px) {
-  #wheel {
-    width: 250px;
-    height: 250px;
-  }
-} */
-
 .wrap {
   display: table-cell;
   vertical-align: middle;
 }
 .columns {
-  display: flex; /* establish flex container */
-  justify-content: center; /* switched from default (flex-start, see below) */
+  display: flex;
+  justify-content: center;
 }
 
 .hint,
@@ -283,16 +268,7 @@ select,
   width: 204px;
   height: 16px;
 }
-/* .select-wrapper::after {
-  position: absolute;
-  font-family: "Font Awesome 5 free";
-  font-weight: 900;
-  content: "\f13a";
-  top: 8px;
-  right: 8px;
-  color: crimson;
-  pointer-events: none;
-} */
+
 select:disabled {
   background: grey;
 }
