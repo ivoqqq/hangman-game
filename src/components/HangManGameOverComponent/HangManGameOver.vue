@@ -33,16 +33,12 @@ export default {
         l.setAttribute("style", "color: white; background: transparent")
       );
       this.$parent.$el.querySelector(".wrap").style.removeProperty("filter");
-    //   document.querySelector(".wrap").style.removeProperty("filter");
-      // Object.assign(this.$data, this.$options.data.apply(this)); //prepisano
-      Object.assign(this.$parent.$data, this.$parent.$options.data.apply(this)); //RABOTI
+      Object.assign(this.$parent.$data, this.$parent.$options.data.apply(this));
       this.$parent.range = Array(90 - 65 + 1)
         .fill()
         .map((el, i) => 65 + i);
       // create an array of range for v-for uppercase from A to Z
       this.$parent.categories = Object.keys(words);
-    //   this.$emit("reset", this.restart);
-      // Правилно ли е така да се бъркам в парент компонента?????????????????------>this.$parent.$data
     },
   },
 };

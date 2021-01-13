@@ -38,7 +38,6 @@
       </div>
       <div class="dashed">
         <div>{{ dashes }}</div>
-        <!-- <div v-for="(ch, index) in countLetter" :key="'ch' + index">{{ ch }}</div> -->
       </div>
       <canvas-component :mistakes-left="mistakesLeft"></canvas-component>
       <div class="keyboard">
@@ -56,13 +55,11 @@
 </template>
 
 <script>
-// import ModalHintContainer from './ModalHintContainer.vue';
 import { words } from "./hangman-words.js";
 import CanvasComponent from "./HangManCanvasComponent/HangManCanvas.vue";
 import GameOverComponent from "./HangManGameOverComponent/HangManGameOver.vue";
 import HintComponent from "./HangManHintComponent/HangManHintComponent.vue";
 export default {
-  // components: { ModalHintContainer },
   components: { CanvasComponent, GameOverComponent, HintComponent },
   data() {
     return {
@@ -81,7 +78,6 @@ export default {
       addMistakes: 0,
       word: null,
       wordHint: null
-      // hintsLeft: 2,
     };
   },
 
@@ -95,9 +91,6 @@ export default {
     dashes: function () {
       return this.countLetter.join(" "); //join the output to display it without []...
     },
-    // joker: function () {
-    //   return words[this.selected][this.index].hint.toUpperCase();
-    // },
     mistakesLeft: function () {
       return 9 + this.addMistakes - [...new Set(this.wrongKeys)].length;
     },
@@ -112,7 +105,7 @@ export default {
 
     keyPressed: function () {
       //mouse click or keyboard button press
-      // console.log(event)
+
       if (event.type === "click") {
         this.char = event.target.innerHTML.toUpperCase(); //ensure upper and lower case letters =>> capsLock on/off
       } else {
@@ -127,7 +120,6 @@ export default {
       for (var j = 0; j < this.$refs.letter.length; j++) {
         if (this.char === this.$refs.letter[j].innerHTML) {
           if (words[this.selected][this.index].word.includes(this.char)) {
-            // this.char.setAttribute("style","color: black; background: white");
             this.$refs.letter[j].setAttribute(
               "style",
               "color: black; background: white"
@@ -181,10 +173,6 @@ export default {
         window.addEventListener("keyup", this.keyPressed);
         window.addEventListener("click", this.keyPressed);
       }
-    },
-    hintsLeft: function () {
-      console.log(this.hintsLeft);
-      //TODO: disable hint button when hint is used two times
     },
   }
 };

@@ -6,7 +6,7 @@
           <svg xmlns="http://www.w3.org/2000/svg">
             <path
               style="
-                fill: #ff2e52;
+                fill: #4dd0e1;
                 stroke: #012e52;
                 stroke-width: 4;
                 stroke-linecap: round;
@@ -210,12 +210,11 @@
         <div class="answer" v-else-if="revealMistakes">
           <p>{{ "Added extra two mistakes".toUpperCase() }}</p>
         </div>
-        <!-- 					<div class="answer" v-else-if="revealLetter">Choose position to reveal</div> -->
         <div class="answer" v-else-if="revealLetter">
           <p>Choose position to reveal</p>
           <p>
             <span
-              class="zzz"
+              class="revealLetter"
               @click="reveal(index)"
               v-for="(ch, index) in countLetter"
               :key="'ch' + index"
@@ -320,8 +319,6 @@ export default {
   },
   watch: {
     spinned: function (i) {
-      //когато ползвам хинт и при натискане на play again се сменя и влиза в някой if
-      //hm работи си
       if (i === 0) {
         this.revealJoker = true;
       } else if (i === 1) {
@@ -370,12 +367,6 @@ export default {
   border-radius: 30px;
   background: rgba(0, 0, 2, 0.5);
 }
-
-/* .bigWheelContainer {
-  position: absolute;
-  width: inherit;
-  height: inherit;
-} */
 #wheelContainer {
   position: absolute;
   width: 250px;
@@ -453,8 +444,9 @@ export default {
   z-index: 30;
 }
 .answer {
-  /* height: 10vh; */
+  height: 50px;
   min-height: 10vh;
+  width: 200px;
   min-width: 60vw;
   top: calc(50% + 20vh);
   left: calc(50% - 30vw);
@@ -466,15 +458,15 @@ export default {
   text-align: center;
   color: black;
   z-index: 20;
-  /* display: flex;
-  flex-direction: column; */
   display: grid;
   grid-template-rows: auto;
 }
-.zzz {
-  /* display: inline-block; */
+.answer p {
+  position: relative;
+  top: 25%;
+}
+.revealLetter {
   padding: 2%;
-  /* margin-right: 2%; */
   cursor: pointer;
   width: 60vw;
 }
