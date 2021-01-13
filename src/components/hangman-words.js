@@ -5,12 +5,12 @@ export var words = {
     ],
     Tools: [
       { word: "HAMMER", hint: "has handle and iron block" },
-      // { word: "KNIFE", hint: "has handle and it's sharp" },
-      // { word: "SHOVEL", hint: "has handle and can kill" },
+      { word: "KNIFE", hint: "has handle and it's sharp" },
+      { word: "SHOVEL", hint: "has handle, used to dig" },
     ],
     Fruits: [
       { word: "BANANA", hint: "long yellow fruit" },
-      { word: "PINEAPPLE", hint: "asdasdads" },
+      { word: "STRAWBERRY", hint: "tiny red garden fruit" }, 
     ],
     "Geometric figures": [
       { word: "TRIANGLE", hint: "have three sides" },
