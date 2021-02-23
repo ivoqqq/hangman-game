@@ -1,4 +1,5 @@
 # hangman-game
+Currently developing...
 
 ## Project setup
 ```
